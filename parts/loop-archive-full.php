@@ -2,6 +2,7 @@
 /**
  *  displays whole post in archive list (for components)
  */
+
 ?>
 
 
@@ -15,12 +16,12 @@
 
 			<section class="component component-intro">
 				<span class="styleguide_header"><h2>Introduction</h2></span>
-				<?php the_field( 'intro', get_the_ID() ); ?>
+				<?php the_field( 'intro' ); ?>
 			</section>
-			<?php if ( have_rows( 'design_section', get_the_ID() ) ): ?>
+			<?php if ( have_rows( 'design_section' ) ): ?>
 				<section class="component component-design">
 					<span class="styleguide_header"><h2>Design</h2></span>
-					<?php while ( have_rows( 'design_section', get_the_ID() ) ) : the_row(); ?>
+					<?php while ( have_rows( 'design_section' ) ) : the_row(); ?>
 						<?php if ( get_row_layout() == 'text_block_section' ) : ?>
 							<span class="styleguide_header"><h3><?php the_sub_field( 'section_title' ); ?></h3></span>
 							<?php the_sub_field( 'section_content' ); ?>
@@ -36,19 +37,19 @@
 								<?php // no rows found ?>
 							<?php endif; ?>
 						<?php elseif ( get_row_layout() == 'examples' ) : ?>
-							<?php if ( have_rows( 'example', get_the_ID() ) ) : ?>
-								<?php while ( have_rows( 'example', get_the_ID() ) ) : the_row(); ?>
+							<?php if ( have_rows( 'example' ) ) : ?>
+								<?php while ( have_rows( 'example' ) ) : the_row(); ?>
 									<?php if( get_sub_field( 'layout' ) == 'full' ){ ?>
 										<div class="block-container">
 											<div class="example-item">
-												<span class="styleguide_header"><h3><?php the_sub_field( 'example_title_full', get_the_ID() ); ?></h3></span>
+												<span class="styleguide_header"><h3><?php the_sub_field( 'example_title_full' ); ?></h3></span>
 												<?php the_sub_field( 'example_full' ); ?>
 											</div>
 										</div>
 									<?php } else { ?>
-										<?php if ( have_rows( 'example_group', get_the_ID() ) ) : ?>
+										<?php if ( have_rows( 'example_group' ) ) : ?>
 											<div class="grid-container">
-												<?php while ( have_rows( 'example_group', get_the_ID() ) ) : the_row(); ?>
+												<?php while ( have_rows( 'example_group' ) ) : the_row(); ?>
 													<div class="example-item">
 														<span class="styleguide_header"><h3><?php the_sub_field( 'example_title_grid' ); ?></h3></span>
 														<?php the_sub_field( 'example_grid' ); ?>
@@ -63,11 +64,11 @@
 					<?php endwhile; ?>
 				</section>
 			<?php endif; /* ********** end design section ********** */ ?>
-			<?php if ( have_rows( 'code_section', get_the_ID() ) ): ?>
+			<?php if ( have_rows( 'code_section' ) ): ?>
 				<section class="component component-code">
 					<span class="styleguide_header"><h2>Code</h2></span>
 					<div id="tab_code" class="col s12">
-						<?php while ( have_rows( 'code_section', get_the_ID() ) ) : the_row(); ?>
+						<?php while ( have_rows( 'code_section' ) ) : the_row(); ?>
 							<?php if ( get_row_layout() == 'text_block_section' ) : ?>
 								<span class="styleguide_header"><h3><?php the_sub_field( 'section_title' ); ?></h3></span>
 								<?php the_sub_field( 'section_content' ); ?>
@@ -82,7 +83,6 @@
 					</div>
 				</section>
 			<?php endif; /* ********** end code section ********** */ ?>
-
 
 
 	</article> <!-- end article -->
