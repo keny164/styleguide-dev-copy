@@ -15,11 +15,11 @@
 					echo '<section class="archive-grid">';
 					while ( have_posts() ) : the_post(); ?>
 
-						<?php //if ( is_post_type_archive( 'component' ) || 'post_type' == 'component' || is_category() ) {
-							//get_template_part( 'parts/loop', 'archive-full' );
-						//} else {
-							get_template_part( 'parts/loop', 'archive-grid' );
-						//}
+						<?php 
+							get_template_part( 'parts/loop', 'archive-full' );
+
+							// get_template_part( 'parts/loop', 'archive-grid' ); // temp fix for ACF not showing all data
+					
 						?>
 
 				<?php endwhile; ?>

@@ -17,11 +17,13 @@
 			<section class="component component-intro">
 				<span class="styleguide_header"><h2>Introduction</h2></span>
 				<?php the_field( 'intro' ); ?>
+				<br />
+				<h3>testing: <?php echo get_the_ID(); ?></h3>
 			</section>
-			<?php if ( have_rows( 'design_section' ) ): ?>
+			<?php if ( have_rows( 'design_section', get_the_ID() ) ): ?>
 				<section class="component component-design">
 					<span class="styleguide_header"><h2>Design</h2></span>
-					<?php while ( have_rows( 'design_section' ) ) : the_row(); ?>
+					<?php while ( have_rows( 'design_section', get_the_ID() ) ) : the_row(); ?>
 						<?php if ( get_row_layout() == 'text_block_section' ) : ?>
 							<span class="styleguide_header"><h3><?php the_sub_field( 'section_title' ); ?></h3></span>
 							<?php the_sub_field( 'section_content' ); ?>
@@ -64,11 +66,11 @@
 					<?php endwhile; ?>
 				</section>
 			<?php endif; /* ********** end design section ********** */ ?>
-			<?php if ( have_rows( 'code_section' ) ): ?>
+			<?php if ( have_rows( 'code_section', get_the_ID() ) ): ?>
 				<section class="component component-code">
 					<span class="styleguide_header"><h2>Code</h2></span>
 					<div id="tab_code" class="col s12">
-						<?php while ( have_rows( 'code_section' ) ) : the_row(); ?>
+						<?php while ( have_rows( 'code_section', get_the_ID() ) ) : the_row(); ?>
 							<?php if ( get_row_layout() == 'text_block_section' ) : ?>
 								<span class="styleguide_header"><h3><?php the_sub_field( 'section_title' ); ?></h3></span>
 								<?php the_sub_field( 'section_content' ); ?>
